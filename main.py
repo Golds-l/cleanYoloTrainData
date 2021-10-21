@@ -152,7 +152,6 @@ def divide(imagePath, labelPath, stride, savePath):
     numVal = 0
     imgPaths = glob.glob(imagePath)
     labelPaths = glob.glob(labelPath)
-    os.mkdir(savePath + "")
     for pathNum in tqdm(range(len(imgPaths))):
         if pathNum % stride == 0:
             shutil.copyfile(imgPaths[pathNum],
@@ -282,8 +281,9 @@ def rotateImgAndLbl(imgPath, lblPath):
 
 if __name__ == "__main__":
     # isSameImg("testImgs\\*.jpg")
-    rotateImgAndLbl("D:\\大块煤数据\\大块煤第三次标注图片标签数据\\*.jpg", "testImgs")
+    # rotateImgAndLbl("D:\\大块煤数据\\大块煤第三次标注图片标签数据\\*.jpg", "testImgs")
     # cv2.imshow("origin", cv2.imread("testImgs/testLbl.jpg"))
+    divide("D:\\bigcoalLast\\images\\*.jpg", "D:\\bigcoalLast\\labels\\*.txt", 7, "D:\\bigcoalLast\\save")
     # cv2.imshow("test", cv2.imread("testImgs/testLbl.jpg")[328: 400, 118: 148])
     # cv2.waitKey(0)
     # divideToFolders(".\\testImgs\\*.jpg", ".\\")
